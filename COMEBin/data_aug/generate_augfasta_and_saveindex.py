@@ -102,7 +102,7 @@ def run_gen_augfasta(logger, args):
     contig_len = args.contig_len
 
     outdir = out_path + '/aug0'
-    os.makedirs(outdir)
+    osos.makedirs(outdir, exist_ok=True)
     out_file = outdir + '/sequences_aug0.fasta'
     shutil.copyfile(fasta_file, out_file)
 
@@ -111,7 +111,7 @@ def run_gen_augfasta(logger, args):
 
     for i in range(num_aug):
         outdir = out_path + '/aug' + str(i + 1)
-        os.makedirs(outdir)
+        osos.makedirs(outdir, exist_ok=True)
         logger.info("aug:\t" + str(i+1))
         p = None
         seqs = get_inputsequences(fasta_file)
