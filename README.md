@@ -1,3 +1,17 @@
+## Fork-Specific Changes
+
+This fork of COMEBin is based on [ziyewang/COMEBin](https://github.com/ziyewang/COMEBin) and includes several updates and bug fixes:
+
+* **Updated Conda Environment** – The `comebin_env.yaml` file has been revised. It now uses Python 3.8 and PyTorch 1.12 with CUDA 12.1, and includes additional libraries such as `hnswlib`, `igraph`, `joblib`, `leidenalg`, `networkx`, `numba`, `pandas`, and `scanpy`. Dependencies are no longer strictly pinned to specific version numbers, making installation with up-to-date packages easier.
+* **Compatibility with scikit-learn ≥ 1.2** – In `COMEBin/cluster.py`, the deprecated `n_jobs=-1` option in the `KMeans` call has been removed.
+* **More Robust Scripts** – Several scripts now use `os.makedirs(..., exist_ok=True)` to create output directories without errors. In addition, the path in `run_comebin.sh` has been adjusted so that the helper script is correctly located even when run from different working directories.
+* **Removal of Deprecated NumPy Types** – `np.int` has been replaced with the built-in `int` type.
+
+When using this fork, please install the environment via the included `comebin_env.yaml` file (see the “Install COMEBin via source code” section) and run COMEBin as usual via `run_comebin.sh`.
+
+
+
+
 # COMEBin
 GitHub repository for the manuscript "Effective binning of metagenomic contigs using COntrastive Multi-viEw representation learning".
 - [Overview](#overview)
